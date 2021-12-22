@@ -7,13 +7,14 @@ import java.io.Serializable;
 /**
  * @author Lucas iorio (www.byiorio.com.br)
  *
- * Controle da Letra
+ *         Controle da Letra
  */
 public class Letra implements Serializable {
-    private int x;
-    private int y;
-    private char[] caractere;
-    private Color cor;
+    private int x; // posicao no eixo x
+    private int y;// posicao no eixo y
+    private char[] caractere; // Array de CHAR de uma posicao por causa do objeto que desenha, onde pega um
+                              // array de char
+    private Color cor; // Cor atual da letra
 
     public boolean isSumiu() {
         Integer h = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
