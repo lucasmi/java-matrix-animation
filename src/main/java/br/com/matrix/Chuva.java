@@ -34,7 +34,7 @@ public class Chuva extends JPanel {
     }
 
     /**
-     * Coloca uma letra em cada coluna no Eixo X disponivel
+     * Coloca um rastro para cada coluna no Eixo X disponivel
      */
     private void carregaChuva() {
         Integer larguraTela = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
@@ -51,7 +51,7 @@ public class Chuva extends JPanel {
         super.paint(g);
 
         try {
-            // Desenha fundo preto
+            // Adiciona um quadrado com a cor preta para ficar de fundo
             Integer larguraTela = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
             Integer alturaTela = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
             g.setColor(new Color(13, 2, 8));
@@ -64,6 +64,7 @@ public class Chuva extends JPanel {
                     RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);
 
+            // FAz um loop para cada letra de cada rastro
             for (int i = 0; i < this.rastros.length; i++) {
                 this.rastros[i].desenhar(g2);
             }

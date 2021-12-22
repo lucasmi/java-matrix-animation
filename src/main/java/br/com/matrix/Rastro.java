@@ -23,16 +23,31 @@ public class Rastro implements Serializable {
      * @param posicaoLateralEscolhida
      */
     private void inicializar(int posicaoLateralEscolhida) {
+        // Pega altura maxima da tela
         int alturaTela = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+
+        // Com a altura maxima da pra saber quantas letras vao caber
         int totalLetras = alturaTela / Utilidade.getAlturaFonte();
+
+        // Limite do rastro, para o rastro nao ficar do tamanho da tela, ele pode ter o
+        // tamanho total menos 2 posicoes
         int limiteLetras = 2;
 
+        // PEga tamanho aleatorio do rastro para cada rastro ficar diferente
         this.tamanho = Utilidade.getNumeroRandomico(20, totalLetras - limiteLetras);
+
+        // Pega a posicao do Eixo X escolhida no FOR da Chuva.java
         this.posicaoLateral = posicaoLateralEscolhida;
+
+        // Pega uma velocidade aleatorio para o rastro
         this.velocidade = Utilidade.getVelocidadeRandomica();
+
+        // Cria o rastro inteiro de letras
         this.letras = this.criarTodasLetras();
 
-        // Para nao comecar com um padrao
+        // Caso seja a primeira vez que o rastro sera desenhado
+        // pegar uma posicao inicial aleatoria, para nao comecar todo mundo no mesmo
+        // lugar
         if (this.primeiraVez) {
             this.posicaoAtualAnimacao = Utilidade.getNumeroRandomicoMultiplo(20 *
                     Utilidade.getAlturaFonte(),

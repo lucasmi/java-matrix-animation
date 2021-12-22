@@ -18,10 +18,15 @@ public class Utilidade {
         int[] letrasExistentes = { 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113,
                 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 36, 43, 45, 42, 47,
                 61, 37, 34, 39, 35, 38, 40 };
-        int letraEscolhida = getNumeroRandomico(letrasExistentes.length);
 
+        // Escolhe um indice do array aleatorio
+        int indiceAleatorioLetra = getNumeroRandomico(letrasExistentes.length);
+
+        // cria um array para o componente que desenha a letra
         char[] definirLetra = new char[1];
-        definirLetra[0] = (char) letrasExistentes[letraEscolhida];
+
+        // Pega a letra atraves do indice aleatorio escilho
+        definirLetra[0] = (char) letrasExistentes[indiceAleatorioLetra];
         return definirLetra;
     }
 
@@ -39,15 +44,20 @@ public class Utilidade {
     }
 
     public static int getAlturaFonte() {
-        return TAMANHO_FONTE; // -2
+        return TAMANHO_FONTE; // -2 // caso queira mudar o espacamento
     }
 
     public static int getLarguraFonte() {
-        return TAMANHO_FONTE;// -3
+        return TAMANHO_FONTE;// -3 // caso queira mudar o espacamento
     }
 
+    /**
+     * Pega uma velocidade dentro dos multiplos do tamanho da fonte
+     * 
+     * @return
+     */
     public static int getVelocidadeRandomica() {
-        int[] multiplos = { 4, 8, 16 };
+        int[] multiplos = { 2, 4, 8, 16 };
         int multiploEscolhido = randomico.nextInt(multiplos.length);
         return multiplos[multiploEscolhido];
     }
